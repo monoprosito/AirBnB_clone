@@ -46,9 +46,41 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def __str__(self):
-        """Another documentation
+        """Representation of the class for the user
 
-        Any documentation
+        Example:
+            $ bm = BaseModel()
+            $ print(bm)
+
+            This method prints the content of the Base Model
+            class with this format
+
+            $ [<class name>] (<self.id>) <self.__dict__>
 
         """
-        return '[{0}] ({1})'.format(self.__class__.__name__, self.id)
+        return '[{0}] ({1}) {2}'.format(
+                self.__class__.__name__, self.id, self.__dict__
+            )
+
+    def save(self):
+        """Updates the datetime of update_at attribute
+
+        Updates the public instance attribute updated_at
+        with the current datetime
+
+        """
+        self.updated_at = datetime.now()
+
+    def to_dict(self):
+        """Converts the information of the class to human-readable format
+
+        Returns a dictionary containing all keys/values
+        of __dict__ of the instance.
+
+        """
+        class_info = self.__dict__
+        class_info['__class__'] = self.__class__.__name__
+        class_info['created_at'] = self.created_at.isoformat()
+        class_info['updated_at'] = self.updated_at.isoformat()
+
+        return class_info
