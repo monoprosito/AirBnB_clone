@@ -10,6 +10,9 @@ from datetime import datetime
 import cmd
 import models
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
 import shlex
 
 
@@ -101,7 +104,6 @@ by adding or updating attribute.
         """
         args = shlex.split(line)
         args_size = len(args)
-
         if args_size == 0:
             print('** class name missing **')
         elif args_size == 1 and args[0] not in self.allowed_classes:
@@ -111,7 +113,6 @@ by adding or updating attribute.
         else:
             key = args[0] + '.' + args[1]
             inst_data = models.storage.all().get(key)
-
             if inst_data is None:
                 print('** no instance found **')
             elif args_size == 2:
