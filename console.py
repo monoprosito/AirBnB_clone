@@ -123,9 +123,25 @@ by adding or updating attribute.
             elif args_size == 3:
                 print('** value missing **')
             else:
+                args[3] = self.analyze_parameter_value(args[3])
                 setattr(inst_data, args[2], args[3])
                 setattr(inst_data, 'updated_at', datetime.now())
                 models.storage.save()
+
+    def analyze_parameter_value(self, value):
+        """Analyze if a parameter is a string that needs
+        convert to a float number or an integer number.
+
+        Args:
+            value: The value to analyze
+
+        """
+        if value.isdigit():
+            return int(value)
+        elif value.replace('.', '', 1).isdigit():
+            return float(value)
+
+        return value
 
     def emptyline(self):
         """Emptyline Documentation
