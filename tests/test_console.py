@@ -9,7 +9,7 @@ from models.state import State
 import unittest
 
 
-class Testmodels(unittest.TestCase):
+class TestConsole(unittest.TestCase):
     def test_class(self):
         city1 = City()
         amenity1 = Amenity()
