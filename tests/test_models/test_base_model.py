@@ -8,8 +8,8 @@ and cases on which it is expected to fail.
 
 """
 
-from models.base_model import BaseModel
 from datetime import datetime
+from models.base_model import BaseModel
 import pep8
 import unittest
 import uuid
