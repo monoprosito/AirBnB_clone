@@ -80,6 +80,20 @@ based on the class name and id.
                 del models.storage.all()[key]
                 models.storage.save()
 
+    def do_all(self, line):
+        """Prints all string representation of all instances
+based or not on the class name.
+        """
+        command = self.parseline(line)[0]
+        objs = models.storage.all()
+        if command is None:
+            print([str(objs[obj]) for obj in objs])
+        elif command in self.allowed_classes:
+            keys = objs.keys()
+            print([str(objs[key]) for key in keys if key.startswith(command)])
+        else:
+            print("** class doesn't exist **")
+
     def emptyline(self):
         """Emptyline Documentation
         Method called when an empty line is entered in
