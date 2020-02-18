@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 """Test User"""
-import unittest
-import pep8
+from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
-from models.amenity import Amenity
-from models.state import State
 from models.review import Review
+from models.state import State
+import pep8
+import unittest
 
 
 class Testuser(unittest.TestCase):
+    """
+    ...
+    ...
+    """
 
     def test_pep8_conformance_user(self):
         """Test that we conform to PEP8."""

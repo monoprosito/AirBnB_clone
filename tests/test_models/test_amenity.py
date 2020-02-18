@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 """Test Amenity"""
-import unittest
-import pep8
+from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
-from models.amenity import Amenity
-from models.state import State
 from models.review import Review
+from models.state import State
+import unittest
+import pep8
 
 
 class Testamenity(unittest.TestCase):
+    """
+    ...
+    ...
+    """
 
     def test_pep8_conformance_amenity(self):
         """Test that we conform to PEP8."""
@@ -20,9 +24,17 @@ class Testamenity(unittest.TestCase):
                          "Found code style errors (and warnings).")
 
     def test_class(self):
+        """
+        ...
+        ...
+        """
         amenity1 = Amenity()
         self.assertEqual(amenity1.__class__.__name__, "Amenity")
 
     def test_father(self):
+        """
+        ...
+        ...
+        """
         amenity1 = Amenity()
         self.assertTrue(issubclass(amenity1.__class__, BaseModel))
