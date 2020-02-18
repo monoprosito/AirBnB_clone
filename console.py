@@ -109,7 +109,7 @@ by adding or updating attribute.
         args_size = len(args)
         if args_size == 0:
             print('** class name missing **')
-        elif args_size == 1 and args[0] not in self.allowed_classes:
+        elif args[0] not in self.allowed_classes:
             print("** class doesn't exist **")
         elif args_size == 1:
             print('** instance id missing **')
