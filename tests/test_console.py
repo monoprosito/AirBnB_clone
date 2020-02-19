@@ -10,7 +10,15 @@ import unittest
 
 
 class TestConsole(unittest.TestCase):
+    """
+    This test checks if all required classes
+    are created correctly.
+    """
     def test_class(self):
+        """
+        This test checks if all required classes
+        are present
+        """
         city1 = City()
         amenity1 = Amenity()
         state1 = State()
@@ -23,6 +31,10 @@ class TestConsole(unittest.TestCase):
         self.assertEqual(place1.__class__.__name__, "Place")
 
     def test_father(self):
+        """
+        This test checks if all required classes
+        inherit correcly from BaseModel
+        """
         city1 = City()
         amenity1 = Amenity()
         state1 = State()

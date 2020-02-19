@@ -12,8 +12,7 @@ import unittest
 
 class Testpep8(unittest.TestCase):
     """
-    ...
-    ...
+    Tests if all code compiles with pep8 standards.
     """
 
     def test_pep8_conformance_amenity(self):
