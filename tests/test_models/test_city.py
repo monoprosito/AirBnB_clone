@@ -11,10 +11,8 @@ import unittest
 
 
 class Testcity(unittest.TestCase):
-    """...
-
-    ...
-    ...
+    """
+    Unittests for the City class.
     """
     def test_pep8_conformance_city(self):
         """Test that we conform to PEP8."""
@@ -25,16 +23,14 @@ class Testcity(unittest.TestCase):
 
     def test_class(self):
         """
-        ...
-        ...
+        Tests if class is named correctly.
         """
         city1 = City()
         self.assertEqual(city1.__class__.__name__, "City")
 
     def test_father(self):
         """
-        ...
-        ...
+        Tests if Class inherits from BaseModel.
         """
         city1 = City()
         self.assertTrue(issubclass(city1.__class__, BaseModel))

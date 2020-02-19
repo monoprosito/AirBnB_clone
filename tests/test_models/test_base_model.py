@@ -42,11 +42,6 @@ class TestBaseModel(unittest.TestCase):
         except Exception:
             pass
 
-    """...
-
-    ...
-    ...
-    """
     def test_pep8_conformance_base_model(self):
         """pep8 test.
 
@@ -72,19 +67,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(bm.id, str)
 
     def test_base_model_uuid_good_format(self):
-        """...
-
-        ...
-        ...
+        """
+        Tests if UUID is in the correct format.
         """
         bm = BaseModel()
         self.assertIsInstance(uuid.UUID(bm.id), uuid.UUID)
 
     def test_base_model_uuid_wrong_format(self):
-        """...
-
-        ...
-        ...
+        """
+        Tests a badly named UUID, to confirm that it is checked.
         """
         bm = BaseModel()
         bm.id = 'Monty Python'
@@ -96,10 +87,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(warn, str(msg.exception))
 
     def test_base_model_uuid_version(self):
-        """...
-
-        ...
-        ...
+        """
+        Tests if the version of the UUID is 4
         """
         bm = BaseModel()
         conv_uuid = uuid.UUID(bm.id)
@@ -107,10 +96,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(conv_uuid.version, 4)
 
     def test_base_model_different_uuid(self):
-        """...
-
-        ...
-        ...
+        """
+        checks id UUID are different when different objects are created.
         """
         bm_one = BaseModel()
         bm_two = BaseModel()

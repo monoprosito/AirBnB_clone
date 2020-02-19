@@ -12,8 +12,7 @@ import unittest
 
 class Testplace(unittest.TestCase):
     """
-    ...
-    ...
+    Unittests for the Place class.
     """
 
     def test_pep8_conformance_place(self):
@@ -25,16 +24,14 @@ class Testplace(unittest.TestCase):
 
     def test_class(self):
         """
-        ...
-        ...
+        Tests if class is named correctly.
         """
         place1 = Place()
         self.assertEqual(place1.__class__.__name__, "Place")
 
     def test_father(self):
         """
-        ...
-        ...
+        Tests if Class inherits from BaseModel.
         """
         place1 = Place()
         self.assertTrue(issubclass(place1.__class__, BaseModel))

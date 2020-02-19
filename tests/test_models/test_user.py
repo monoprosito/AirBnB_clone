@@ -12,8 +12,7 @@ import unittest
 
 class Testuser(unittest.TestCase):
     """
-    ...
-    ...
+    Unittests for the User class.
     """
 
     def test_pep8_conformance_user(self):

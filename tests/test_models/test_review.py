@@ -12,8 +12,7 @@ import unittest
 
 class Testreview(unittest.TestCase):
     """
-    ...
-    ...
+    Unittests for the Review class.
     """
     def test_pep8_conformance_review(self):
         """Test that we conform to PEP8."""
@@ -24,16 +23,14 @@ class Testreview(unittest.TestCase):
 
     def test_class(self):
         """
-        ...
-        ...
+        Tests if class is named correctly.
         """
         rev1 = Review()
         self.assertEqual(rev1.__class__.__name__, "Review")
 
     def test_father(self):
         """
-        ...
-        ...
+        Tests if Class inherits from BaseModel.
         """
         rev1 = Review()
         self.assertTrue(issubclass(rev1.__class__, BaseModel))
