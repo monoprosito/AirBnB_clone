@@ -145,6 +145,35 @@ by adding or updating attribute.
 
         return value
 
+    def get_objects(self, instance=''):
+        """Gets the elements created by the console
+
+        This method takes care of obtaining the information
+        of all the instances created in the file `objects.json`
+        that is used as the storage engine.
+
+        When an instance is sent as an argument, the function
+        takes care of getting only the instances that match the argument.
+
+        Args:
+            instance (:obj:`str`, optional): The instance to finds into
+                the objects.
+
+        Returns:
+            list: If the `instance` argument is not empty, it will search
+            only for objects that match the instance. Otherwise, it will show
+            all instances in the file where all objects are stored.
+
+        """
+        objects = models.storage.all()
+
+        if instance:
+            keys = objects.keys()
+            return [str(val) for key, val in objects.items()
+                    if key.startswith(instance)]
+
+        return [str(val) for key, val in objects.items()]
+
     def default(self, line):
         """
         When the command prefix is not recognized, this method
@@ -161,7 +190,9 @@ by adding or updating attribute.
 
             if class_name in self.allowed_classes:
                 if method_name == 'all()':
-                    self.do_all(class_name)
+                    print(self.get_objects(class_name))
+                elif method_name == 'count()':
+                    print(len(self.get_objects(class_name)))
 
     def emptyline(self):
         """
