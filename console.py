@@ -129,7 +129,9 @@ by adding or updating attribute.
                 models.storage.save()
 
     def analyze_parameter_value(self, value):
-        """Analyze if a parameter is a string that needs
+        """Checks a parameter value for an update
+
+        Analyze if a parameter is a string that needs
         convert to a float number or an integer number.
 
         Args:
@@ -143,12 +145,29 @@ by adding or updating attribute.
 
         return value
 
+    def default(self, line):
+        """
+        When the command prefix is not recognized, this method
+        looks for whether the command entered has the syntax:
+            "<class name>.<method name>" or not,
+        and links it to the corresponding method in case the
+        class exists and the method belongs to the class.
+
+        """
+        if '.' in line:
+            splitted = line.split('.')
+            class_name = splitted[0]
+            method_name = splitted[1]
+
+            if class_name in self.allowed_classes:
+                if method_name == 'all()':
+                    self.do_all(class_name)
+
     def emptyline(self):
-        """Emptyline Documentation
-        Method called when an empty line is entered in
-        response to the prompt. If this method is not
-        overridden, it repeats the last nonempty
-        command entered.
+        """
+        When an empty line is entered in response to the prompt,
+        it won't repeat the last nonempty command entered.
+
         """
         pass
 
