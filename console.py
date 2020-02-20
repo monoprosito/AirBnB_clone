@@ -16,6 +16,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import re
 import shlex
 
 
@@ -184,15 +185,21 @@ by adding or updating attribute.
 
         """
         if '.' in line:
-            splitted = line.split('.')
+            splitted = re.split(r'\.|\(|\)', line)
             class_name = splitted[0]
             method_name = splitted[1]
 
             if class_name in self.allowed_classes:
-                if method_name == 'all()':
+                if method_name == 'all':
                     print(self.get_objects(class_name))
-                elif method_name == 'count()':
+                elif method_name == 'count':
                     print(len(self.get_objects(class_name)))
+                elif method_name == 'show':
+                    class_id = splitted[2][1:-1]
+                    self.do_show(class_name + ' ' + class_id)
+                elif method_name == 'destroy':
+                    class_id = splitted[2][1:-1]
+                    self.do_destroy(class_name + ' ' + class_id)
 
     def emptyline(self):
         """
