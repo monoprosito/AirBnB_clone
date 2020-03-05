@@ -1,10 +1,10 @@
-.places {
+section.places {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
 }
 
-.places h1 {
+section.places h1 {
 	font-size: 30px;
 	margin-left: 20px;
 	width: 100%;

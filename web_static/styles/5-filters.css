@@ -10,7 +10,7 @@ section.filters {
 
 div.locations,
 div.amenities {
-	padding-left: 50px;
+	padding: 0 30px;
 	height: 100%;
 	width: 25%;
 }
